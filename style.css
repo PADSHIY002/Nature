@@ -133,10 +133,15 @@ button{
     background: #fff;
     margin-right: 60px;
     margin-top: 30px;
+    transition: all 0.3s ease;
 }
 
 .btn__header:hover {
-    background: #aca7a7;
+    background: #BC5E28;
+    color: #fff;
+    border-color: #BC5E28;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(188, 94, 40, 0.3);
 }
 
 /* hero */
@@ -279,7 +284,7 @@ button{
 }
 
 .btn__sectionbtn{
-
+    overflow: hidden;
 }
 
 .btn__section1{
@@ -290,18 +295,14 @@ button{
     height: 66px;
     border-radius: 50px;
     background-color: #BC5E28;
-    
+    transition: all 0.3s ease;
+    transform: translateY(0);
 }
 
 .btn__section1:hover{
-    font-weight: 300;
-    font-size: 30px;
-    color: #171717;
-    width: 751px;
-    height: 66px;
-    border-radius: 50px;
     background-color: #6e4025;
-    
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(188, 94, 40, 0.5);
 }
 
 /* section2 */
@@ -312,16 +313,15 @@ button{
 }
 
 .section2__wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 150px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 80px 150px;
+    justify-items: center;
 }
 
 .section2__left,
 .section2__right {
-    display: flex;
-    gap: 80px;
+    display: contents;
 }
 
 .section2__container1,
@@ -464,6 +464,7 @@ button{
     border-radius: 100px;
     background-color: rgba(0,0,0,0);
     border: 1px solid #ffffff;
+    transition: all 0.3s ease;
 }
 
 .btn__section4__info{
@@ -472,12 +473,17 @@ button{
     color: #ffffff;
     font-weight: 300;
     letter-spacing: 0%;
+    transition: color 0.3s ease;
 }
 
 .btn__section4:hover{
-    width: 407px;
-    height: 37px;
-    background-color: rgba(235, 195, 122, 0.623); 
+    background-color: rgba(235, 195, 122, 0.4);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(235, 195, 122, 0.3);
+}
+
+.btn__section4:hover .btn__section4__info {
+    color: #ffffff;
 }
 
 /* footer */
@@ -572,27 +578,55 @@ button{
     display: flex;
     gap: 5px;
     flex-wrap: wrap;
+    align-items: flex-start;
 }
 
 .email-input {
-    flex: 1 1 250px;
-    max-width: 350px;
-    padding: 0 0 2px 0;
+    flex: 1 1 200px;
+    max-width: 250px;
+    padding: 8px 4px;
     font-family: 'Kulim Park', sans-serif;
     font-size: 12px;
-    border-bottom: 1px solid #979797;;
-    border-radius: var(--radius-btn);
+    border-bottom: 1px solid #979797;
     outline: none;
     transition: border-color 0.3s ease;
+    background: transparent;
 }
 
 .email-input:focus {
-    border-color: var(--color-primary);
+    border-color: #BC5E28;
     box-shadow: 0 0 0 2px rgba(188, 94, 40, 0.2);
 }
 
+.btn__subscribe {
+    padding: 8px 16px;
+    font-family: 'Kulim Park', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #fff;
+    background-color: #BC5E28;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.btn__subscribe:hover {
+    background-color: #6e4025;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(188, 94, 40, 0.4);
+}
+
+.checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
 .checkbox-label{
-    font-size: 7px;
+    font-size: 10px;
     font-weight: 300;
     color: #979797;
     font-family: 'Kulim Park', sans-serif;
@@ -600,8 +634,10 @@ button{
 }
 
 .checkbox-input{
-    width: 7px;
-    height: 7px;
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+    accent-color: #BC5E28;
 }
 /* кнопки тг и вк */
 .btn__vk__telega{
@@ -788,15 +824,14 @@ button{
     
     /* Section 2 */
     .section2__wrapper {
-        flex-direction: column;
-        gap: 40px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 40px 60px;
         padding: 0 20px;
     }
     
     .section2__left,
     .section2__right {
-        justify-content: center;
-        gap: 40px;
+        display: contents;
     }
     
     .container1__info__big {
@@ -884,25 +919,66 @@ button{
 /* Телефоны */
 @media (max-width: 768px) {
     /* Header */
+    .header {
+        padding: 10px 0;
+    }
+    
+    .header__container {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        padding: 0 10px;
+    }
+    
+    .info__header {
+        margin: 0;
+    }
+    
     .list__header {
         gap: 15px;
         flex-wrap: wrap;
         justify-content: center;
+        padding: 0;
     }
     
     .item__header {
-        font-size: 14px;
+        font-size: 12px;
     }
     
     .logo__header {
-        width: 40px;
-        height: 50px;
+        width: 35px;
+        height: 45px;
+        margin: 0;
+        order: -1;
     }
     
     .btn__header {
-        width: 160px;
-        font-size: 14px;
-        height: 36px;
+        width: 140px;
+        font-size: 12px;
+        height: 32px;
+        margin: 0;
+    }
+    
+    /* Поле ввода email при адаптиве */
+    .email-input {
+        max-width: 140px;
+        font-size: 10px;
+    }
+    
+    .btn__subscribe {
+        width: 100%;
+        padding: 10px;
+        font-size: 12px;
+    }
+    
+    .email-label {
+        font-size: 11px;
+    }
+    
+    .input-wrapper {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
     }
     
     /* Hero */
@@ -961,13 +1037,13 @@ button{
     }
     
     .section2__wrapper {
+        grid-template-columns: repeat(2, 1fr);
         gap: 30px;
     }
     
     .section2__left,
     .section2__right {
-        flex-direction: column;
-        gap: 30px;
+        display: contents;
     }
     
     .container1__info__big {
